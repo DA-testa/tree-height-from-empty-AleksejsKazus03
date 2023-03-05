@@ -1,44 +1,39 @@
-# python3
-
 import sys
 import threading
 import numpy
 
-
 def compute_height(n, parents):
-    # Write this function
-    max_height = 0
-    # Your code here
-    for index in range(n):
-            tmp = Height(index, array)
-            if tmp > MAX_HEIGHT:
-                MAX_HEIGHT = tmp
-            MAX_PATH = 0
-    return max_height
+    tree = numpy.zeros(n)
+    def height(i):
+        if tree[i] != 0:
+            return tree[i]
+        if parents[i] == -1: 
+            tree[i] = 1
+        else: 
+            tree[i] = height(parents[i]) + 1
+        return tree[i]
 
+    for i in range(n):
+        height(i)
+    return int(max(tree))
 
 def main():
-    # implement input form keyboard and from files
-    n = int(input().strip() or 0)
-    array = input().split()
-    array = map(float, array)
-    array = list(map(round, array))
-    l = len(array)
-    if l != n:
-        n = l
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    pass
-
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
+    txt=input()
+    if "F" in txt:
+        filename=input()
+        if "a" not in filename:
+            with open(str("test/"+filename), mode="r") as fails:
+                count = int(fails.readline())
+                elements = list(map(int, fails.readline().split()))
+        else:
+            print("error")
+    elif "I" in txt:
+        count=int(input())
+        elements = list(map(int, input().split()))
+    else:
+        print("Input error")
+    print(compute_height(count, elements))
+   
+sys.setrecursionlimit(10**7)
+threading.stack_size(2**27)
 threading.Thread(target=main).start()
-main()
-# print(numpy.array([1,2,3]))
