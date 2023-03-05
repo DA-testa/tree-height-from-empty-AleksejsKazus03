@@ -35,8 +35,6 @@ def main():
                 elements = list(map(int, txt.readline().split()))
         else:
             print("error")
-     else:
-        print("Input error")
         
     print(compute_height(count, elements))
     
