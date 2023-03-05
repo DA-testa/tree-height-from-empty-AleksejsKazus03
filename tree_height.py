@@ -26,6 +26,9 @@ def main():
     if "I" in input:
         count=int(input())
         elements = list(map(int, input().split()))
+    else:
+        print("Input error")
+        
     elif "F" in input:
     # let user input file name to use, don't allow file names with letter a
         file=input()
