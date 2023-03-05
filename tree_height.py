@@ -26,9 +26,7 @@ def main():
     if "I" in inputtext:
         count=int(input())
         elements = list(map(int, input().split()))
-        else:
-            print("Input error")
-        
+    
     elif "F" in inputtext:
         file=input()
         if "a" not in file:
@@ -37,7 +35,9 @@ def main():
                 elements = list(map(int, txt.readline().split()))
         else:
             print("error")
-            
+     else:
+        print("Input error")
+        
     print(compute_height(count, elements))
     
 sys.setrecursionlimit(10**7)
