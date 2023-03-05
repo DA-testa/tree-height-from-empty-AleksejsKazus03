@@ -23,31 +23,23 @@ def main():
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
     input=input()
-    if "I" in input:
+    inputtext= input()
+    if "F" in inputtext:
+        file=input()
+        if "a" not in file:
+            with open(str("test/"+file), mode="r") as txt:
+                count = int(txt.readline())
+                elements = list(map(int, txt.readline().split()))
+        else:
+            print("error")
+    elif "I" in inputtext:
         count=int(input())
         elements = list(map(int, input().split()))
     else:
         print("Input error")
-    elif "F" in input:
-    # let user input file name to use, don't allow file names with letter a
-        file=input()
-        if "a" in file:
-            print("Input error")
-        else:
-             with open(str("test/"+file), mode="r") as txt:
-                count = int(txxt.readline())
-                elements = list(map(int, txt.readline().split()))
-    else:
-        print("Input error")
-    
-    # account for github input inprecision
-    # call the function and output it's result
     print(compute_height(count, elements))
-
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
+   
+sys.setrecursionlimit(10**7)
+threading.stack_size(2**27)
 threading.Thread(target=main).start()
 
