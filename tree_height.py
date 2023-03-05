@@ -9,12 +9,23 @@ def compute_height(n, parents):
     # Write this function
     max_height = 0
     # Your code here
+    for index in range(n):
+            tmp = Height(index, array)
+            if tmp > MAX_HEIGHT:
+                MAX_HEIGHT = tmp
+            MAX_PATH = 0
     return max_height
 
 
 def main():
     # implement input form keyboard and from files
-    
+    n = int(input().strip() or 0)
+    array = input().split()
+    array = map(float, array)
+    array = list(map(round, array))
+    l = len(array)
+    if l != n:
+        n = l
     # let user input file name to use, don't allow file names with letter a
     # account for github input inprecision
     
