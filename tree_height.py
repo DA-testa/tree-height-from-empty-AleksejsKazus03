@@ -22,7 +22,6 @@ def main():
     # implement input form keyboard and from files
     # input number of elements
     # input values in one variable, separate with space, split these values in an array
-    input=input()
     inputtext= input()
     if "F" in inputtext:
         file=input()
