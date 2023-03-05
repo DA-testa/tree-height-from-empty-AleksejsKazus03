@@ -3,8 +3,7 @@ import threading
 import numpy
 
 def compute_height(n, parents):
-    # print(numpy.array([1,2,3]))
-    tree = numpy.zeros(n)
+    tree = np.zeros(n)
     def height(i):
         if tree[i] != 0:
             return tree[i]
@@ -16,7 +15,7 @@ def compute_height(n, parents):
 
     for i in range(n):
         height(i)
-    return int(max(tree))
+    return int(np.max(tree))
 
 def main():
     # implement input form keyboard and from files
