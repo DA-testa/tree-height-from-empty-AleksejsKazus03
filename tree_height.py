@@ -28,16 +28,15 @@ def main():
         elements = list(map(int, input().split()))
     else:
         print("Input error")
-        
     elif "F" in input:
     # let user input file name to use, don't allow file names with letter a
         file=input()
-        if "a" in input():
+        if "a" in file:
             print("Input error")
         else:
-             with open(str("test/"+file), mode="r") as file:
-                count = int(file.readline())
-                elements = list(map(int, file.readline().split()))
+             with open(str("test/"+file), mode="r") as txt:
+                count = int(txxt.readline())
+                elements = list(map(int, txt.readline().split()))
     else:
         print("Input error")
     
