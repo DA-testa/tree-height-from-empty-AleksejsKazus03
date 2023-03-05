@@ -15,7 +15,7 @@ def compute_height(n, parents):
 
     for i in range(n):
         height(i)
-    return int(max(tree))
+    return int(numpy.max(tree))
 
 def main():
     # implement input form keyboard and from files
