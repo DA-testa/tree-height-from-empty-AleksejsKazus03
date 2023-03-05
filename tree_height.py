@@ -26,8 +26,8 @@ def main():
     if "I" in inputtext:
         count=int(input())
         elements = list(map(int, input().split()))
-    else:
-        print("Input error")
+        else:
+            print("Input error")
         
     elif "F" in inputtext:
         file=input()
