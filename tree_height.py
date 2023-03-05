@@ -18,22 +18,34 @@ def compute_height(n, parents):
     return int(max(tree))
 
 def main():
-    txt=input()
-    if "F" in txt:
-        filename=input()
-        if "a" not in filename:
-            with open(str("test/"+filename), mode="r") as fails:
-                count = int(fails.readline())
-                elements = list(map(int, fails.readline().split()))
-        else:
-            print("error")
-    elif "I" in txt:
+    # implement input form keyboard and from files
+    # input number of elements
+    # input values in one variable, separate with space, split these values in an array
+    input=input()
+    if "I" in input:
         count=int(input())
         elements = list(map(int, input().split()))
+    elif "F" in input:
+    # let user input file name to use, don't allow file names with letter a
+        file=input()
+        if "a" in input():
+            print("Input error")
+        else:
+             with open(str("test/"+file), mode="r") as file:
+                count = int(file.readline())
+                elements = list(map(int, file.readline().split()))
     else:
         print("Input error")
+    
+    # account for github input inprecision
+    # call the function and output it's result
     print(compute_height(count, elements))
-   
-sys.setrecursionlimit(10**7)
-threading.stack_size(2**27)
+
+# In Python, the default limit on recursion depth is rather low,
+# so raise it here for this problem. Note that to take advantage
+# of bigger stack, we have to launch the computation in a new thread.
+sys.setrecursionlimit(10**7)  # max depth of recursion
+threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
+main()
+# print(numpy.array([1,2,3]))
